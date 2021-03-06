@@ -1,6 +1,5 @@
-package com.tyba.obvioassignment.core.adapters
+package com.tyba.obvioassignment.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import com.squareup.picasso.Picasso
 import com.tyba.obvioassignment.R
 import com.tyba.obvioassignment.core.Home.HomeActivity
 import com.tyba.obvioassignment.data.JsonData
-import com.tyba.obvioassignment.utils.rvClicListener
 import kotlinx.android.synthetic.main.recycler_view.view.*
 
 class ImageAdapter constructor(var activity: HomeActivity, var listData: List<JsonData>) :

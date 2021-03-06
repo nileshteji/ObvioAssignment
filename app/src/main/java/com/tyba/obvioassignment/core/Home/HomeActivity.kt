@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tyba.obvioassignment.R
-import com.tyba.obvioassignment.core.adapters.ImageAdapter
+import com.tyba.obvioassignment.adapters.ImageAdapter
 import com.tyba.obvioassignment.core.detail.DetailActivity
 import com.tyba.obvioassignment.data.JsonData
 import com.tyba.obvioassignment.utils.rvClicListener
@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() , rvClicListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        homeViewModel.convertJsonToGson()
+        homeViewModel.getJsonList()
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = linearLayoutManager
