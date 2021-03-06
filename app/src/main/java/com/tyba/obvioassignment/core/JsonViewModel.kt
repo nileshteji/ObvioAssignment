@@ -17,8 +17,8 @@ class JsonViewModel(application: Application) : AndroidViewModel(application) {
         var json: String? = null;
 
         try {
-            var inputStream = _application.assets.open("data.json")
-            var size: Int = inputStream.available()
+            val inputStream = _application.assets.open("data.json")
+            val size: Int = inputStream.available()
             val buffer = ByteArray(size)
             inputStream.read(buffer)
             inputStream.close()
@@ -33,14 +33,14 @@ class JsonViewModel(application: Application) : AndroidViewModel(application) {
 
     fun convertJsonToGson() {
 
-        var gsonConvertor: Gson = Gson()
+        val gsonConvertor: Gson = Gson()
 
-        var jsonString = loadJson()
+        val jsonString = loadJson()
 
         val typeToken: TypeToken<List<JsonData>> = object : TypeToken<List<JsonData>>() {}
 
-        var list: List<JsonData> =
-            gsonConvertor.fromJson<List<JsonData>>(jsonString, typeToken.type)
+        val list: List<JsonData> =
+            gsonConvertor.fromJson(jsonString, typeToken.type)
 
         JsonList.value = list
     }
