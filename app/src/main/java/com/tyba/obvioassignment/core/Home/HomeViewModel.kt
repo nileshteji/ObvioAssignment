@@ -1,11 +1,14 @@
 package com.tyba.obvioassignment.core.Home
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.tyba.obvioassignment.ObvioApplication
 import com.tyba.obvioassignment.data.JsonData
 import com.tyba.obvioassignment.datasource.JsonDataSource
 import kotlinx.coroutines.Dispatchers
@@ -16,9 +19,9 @@ import java.util.*
 import kotlin.Comparator
 
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class HomeViewModel : ViewModel() {
 
-    var _application: Application = application
+    var _application = ObvioApplication.getIntance()
     var JsonList: MutableLiveData<List<JsonData>> = MutableLiveData()
     var jsonDataSource: JsonDataSource
 
@@ -28,7 +31,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getJsonList(){
 
-        var list:MutableList<JsonData> = jsonDataSource.convertJsonToGson()
+        val list:MutableList<JsonData> = jsonDataSource.convertJsonToGson()
         JsonList.value = list
 
     }
