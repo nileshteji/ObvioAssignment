@@ -1,11 +1,14 @@
 package com.tyba.obvioassignment.core.Home
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tyba.obvioassignment.R
 import com.tyba.obvioassignment.core.adapters.ImageAdapter
+import com.tyba.obvioassignment.core.detail.DetailActivity
 import com.tyba.obvioassignment.data.JsonData
 import com.tyba.obvioassignment.utils.rvClicListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,12 +29,18 @@ class HomeActivity : AppCompatActivity() , rvClicListener {
 
         homeViewModel.JsonList.observe(this){ listJson ->
             jsonList = listJson
-            rv = ImageAdapter(listJson)
+            rv = ImageAdapter(this,listJson)
             recyclerView.adapter = rv
         }
+
     }
 
     override fun click(a: Int) {
-        jsonList[a]
+        Intent(this,DetailActivity::class.java).apply {
+            putExtra("object",jsonList[a])
+            startActivity(this)
+        }
     }
+
+
 }
