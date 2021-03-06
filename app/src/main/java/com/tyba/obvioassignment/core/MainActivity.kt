@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         jsonViewModel.convertJsonToGson()
 
+
+        jsonViewModel.JsonList.observe(this){ listJson ->
+
+        }
     }
 
 
