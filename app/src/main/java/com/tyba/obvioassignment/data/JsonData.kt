@@ -5,11 +5,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class JsonData(
-    var date: String,
-    var explanation: String,
-    var title: String,
-    var url: String,
-    var copyright: String
+    var date: String?,
+    var explanation: String?,
+    var title: String?,
+    var url: String?,
+    var copyright: String?
 ) : Parcelable
 
 

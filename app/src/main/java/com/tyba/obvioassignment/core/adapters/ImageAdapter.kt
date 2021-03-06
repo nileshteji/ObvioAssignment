@@ -19,7 +19,7 @@ class ImageAdapter constructor(var activity: HomeActivity, var listData: List<Js
     class Holder(val _activity: HomeActivity,val itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(data: JsonData) {
-            Log.d("recy", data.url)
+
             itemView.text_title.text = data.title
             itemView.date.text = data.date;
             Picasso.get().load(data.url).error(R.drawable.ic_launcher_background)

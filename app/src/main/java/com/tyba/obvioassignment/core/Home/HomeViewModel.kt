@@ -42,11 +42,13 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
         val jsonString = loadJson()
 
-        val typeToken: TypeToken<List<JsonData>> = object : TypeToken<List<JsonData>>() {}
+        val typeToken: TypeToken<MutableList<JsonData>> = object : TypeToken<MutableList<JsonData>>() {}
 
-        val list : List<JsonData> = gsonConvertor.fromJson(jsonString, typeToken.type)
+        val list : MutableList<JsonData> = gsonConvertor.fromJson(jsonString, typeToken.type)
 
-        JsonList.value = list
+        list.sortByDescending{it.date}
+
+        JsonList.value =list
     }
 
 

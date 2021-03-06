@@ -36,6 +36,7 @@ class HomeActivity : AppCompatActivity() , rvClicListener {
     }
 
     override fun click(a: Int) {
+        Log.d("Detail", "${jsonList[a]}")
         Intent(this,DetailActivity::class.java).apply {
             putExtra("object",jsonList[a])
             startActivity(this)
