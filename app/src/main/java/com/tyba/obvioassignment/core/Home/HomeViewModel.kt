@@ -1,4 +1,4 @@
-package com.tyba.obvioassignment.core
+package com.tyba.obvioassignment.core.Home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,9 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.tyba.obvioassignment.data.JsonData
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.Comparator
 
 
-class JsonViewModel(application: Application) : AndroidViewModel(application) {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     var _application: Application = application
     var JsonList: MutableLiveData<List<JsonData>> = MutableLiveData()
@@ -39,11 +44,15 @@ class JsonViewModel(application: Application) : AndroidViewModel(application) {
 
         val typeToken: TypeToken<List<JsonData>> = object : TypeToken<List<JsonData>>() {}
 
-        val list: List<JsonData> =
-            gsonConvertor.fromJson(jsonString, typeToken.type)
+        val list : List<JsonData> = gsonConvertor.fromJson(jsonString, typeToken.type)
 
         JsonList.value = list
     }
+
+
+
+
+
 
 
 }
