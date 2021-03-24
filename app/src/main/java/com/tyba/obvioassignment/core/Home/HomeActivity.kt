@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class HomeActivity : AppCompatActivity() , rvClicListener {
 
     val homeViewModel : HomeViewModel by viewModels()
+
     lateinit var rv : ImageAdapter
     lateinit var jsonList: List<JsonData>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,7 @@ class HomeActivity : AppCompatActivity() , rvClicListener {
         setContentView(R.layout.activity_main)
 
         homeViewModel.getJsonList()
+
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = linearLayoutManager
@@ -41,6 +43,10 @@ class HomeActivity : AppCompatActivity() , rvClicListener {
             putExtra("object",jsonList[a])
             startActivity(this)
         }
+    }
+
+    override fun bookMark(position: Int,isBookMark:Boolean) {
+        homeViewModel.bookMarkTheItem(position,isBookMark)
     }
 
 

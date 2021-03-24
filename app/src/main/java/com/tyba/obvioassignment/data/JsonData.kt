@@ -9,7 +9,8 @@ data class JsonData(
     var explanation: String?,
     var title: String?,
     var url: String?,
-    var copyright: String?
+    var copyright: String,
+    var bookMark:Boolean = false
 ) : Parcelable
 
 

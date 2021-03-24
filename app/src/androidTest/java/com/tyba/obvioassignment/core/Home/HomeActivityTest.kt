@@ -44,7 +44,7 @@ class HomeActivityTest{
         onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<ImageAdapter.Holder>(LIST_ITEM_IN_TEST,click()))
 
         onView(withId(R.id.detailTitle)).check(matches(withText(jsonData[LIST_ITEM_IN_TEST].title)))
-
+    
         onView(withId(R.id.detail)).check(matches(withText(jsonData[LIST_ITEM_IN_TEST].explanation)))
     }
 

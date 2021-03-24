@@ -24,16 +24,19 @@ class HomeViewModel : ViewModel() {
     var _application = ObvioApplication.getIntance()
     var JsonList: MutableLiveData<List<JsonData>> = MutableLiveData()
     var jsonDataSource: JsonDataSource
+    var list: MutableList<JsonData> = mutableListOf()
 
     init {
         jsonDataSource = JsonDataSource(_application)
     }
 
     fun getJsonList(){
-
-        val list:MutableList<JsonData> = jsonDataSource.convertJsonToGson()
+        list = jsonDataSource.convertJsonToGson()
         JsonList.value = list
+    }
 
+    fun bookMarkTheItem(position:Int,isBookMark:Boolean){
+        list[position].bookMark = isBookMark
     }
 
 
